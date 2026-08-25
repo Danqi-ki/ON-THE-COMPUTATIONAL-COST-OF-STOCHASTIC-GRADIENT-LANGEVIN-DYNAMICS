@@ -1,4 +1,4 @@
-# TrueCost
+# ON THE COMPUTATIONAL COST OF STOCHASTIC GRADIENT LANGEVIN DYNAMICS
 
 Empirical cost comparison between the Euler–Maruyama scheme and Stochastic
 Gradient Langevin Dynamics (SGLD) for sampling from a Bayesian posterior over
