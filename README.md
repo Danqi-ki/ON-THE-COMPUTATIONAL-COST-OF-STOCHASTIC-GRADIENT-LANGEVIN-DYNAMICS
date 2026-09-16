@@ -83,10 +83,10 @@ For each $(m,s,\varepsilon)$ configuration and each regenerated dataset:
 
 ```math
 \begin{aligned}
-\operatorname{Cost}(\mathrm{EM})
+\mathrm{Cost}(\mathrm{EM})
 &=N_{\mathrm{EM}}
 \left\lceil\frac{T}{h_{\mathrm{EM}}}\right\rceil m, \\
-\operatorname{Cost}(\mathrm{SGLD})
+\mathrm{Cost}(\mathrm{SGLD})
 &=N_{\mathrm{SGLD}}
 \left\lceil\frac{T}{h_{\mathrm{SGLD}}}\right\rceil s.
 \end{aligned}
