@@ -15,23 +15,23 @@ and SGLD.
 
 The benchmark data model is
 
-$$
+```math
 \theta \sim \mathcal{N}\!\left(0,\frac{\sigma_\theta^2}{m}\right),
 \qquad
 Y_i\mid\theta \overset{\mathrm{i.i.d.}}{\sim}
 \mathcal{N}(\theta,\sigma_y^2),
 \qquad i=1,\ldots,m.
-$$
+```
 
 The posterior is
 
-$$
+```math
 \pi = \mathcal{N}(\mu_p,\sigma_p^2),
-$$
+```
 
 with
 
-$$
+```math
 \begin{aligned}
 \sigma_p^2
 &= \frac{1}{m}
@@ -42,15 +42,15 @@ $$
 \qquad
 \overline{Y}=\frac{1}{m}\sum_{i=1}^m Y_i.
 \end{aligned}
-$$
+```
 
 The code simulates the **time-rescaled** Langevin dynamics
 
-$$
+```math
 \mathrm{d}X_t
 = -\frac{X_t-\mu_p}{2m\sigma_p^2}\,\mathrm{d}t
 + \frac{1}{\sqrt{m}}\,\mathrm{d}W_t.
-$$
+```
 
 Therefore the symbol $h$ in the code is the step size for this rescaled SDE.
 The rescaling keeps the Lipschitz/dissipativity constants independent of $m$
@@ -69,31 +69,19 @@ Monte Carlo noise to create a spurious cost difference.
 
 For each $(m,s,\varepsilon)$ configuration and each regenerated dataset:
 
-1. Set
-   $$
-   T=\left\lceil 3\log\!\left(\varepsilon^{-1}\right)\right\rceil
-   $$
-   by default.
-2. Start from
-   $$
-   h=4\varepsilon.
-   $$
+1. Set $T=\left\lceil 3\log(\varepsilon^{-1})\right\rceil$ by default.
+2. Start from $h=4\varepsilon$.
 3. Generate coupled terminal outputs at $h$ and $h/2$. Brownian increments are
    nested; for SGLD the coarse path shares the first mini-batch in each pair of
    fine steps.
 4. If the empirical mean squared level difference is larger than
-   $$
-   \frac{\varepsilon^2}{2},
-   $$
-   replace $h$ by $h/2$ and repeat.
+   $\varepsilon^2/2$, replace $h$ by $h/2$ and repeat.
 5. At the accepted **coarse** step size $h$, estimate the single-path variance
    $V$ and take
-   $$
-   N=\max\left\{1,\left\lceil\frac{2V}{\varepsilon^2}\right\rceil\right\}.
-   $$
+   $N=\max\{1,\lceil 2V/\varepsilon^2\rceil\}$.
 6. Report the leading operation-count costs
 
-$$
+```math
 \begin{aligned}
 \operatorname{Cost}(\mathrm{EM})
 &=N_{\mathrm{EM}}
@@ -102,7 +90,7 @@ $$
 &=N_{\mathrm{SGLD}}
 \left\lceil\frac{T}{h_{\mathrm{SGLD}}}\right\rceil s.
 \end{aligned}
-$$
+```
 
 These are operation-count proxies, not measured wall-clock times. The result
 files also contain wall-clock time for diagnostics.
@@ -198,9 +186,9 @@ python run.py sample \
 
 The plots include the leading-order boundary
 
-$$
+```math
 s=m-\varepsilon m^2,
-$$
+```
 
 which is the EM/SGLD boundary in the small-data regime where this expression is
 positive. The empirical markers are determined by the simulated cost
