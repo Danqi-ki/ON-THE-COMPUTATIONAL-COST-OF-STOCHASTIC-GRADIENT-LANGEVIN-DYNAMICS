@@ -1,15 +1,26 @@
 # On the Computational Cost of Stochastic Gradient Langevin Dynamics
 
-Reproducible numerical code for the empirical computational-cost comparison
-between the full Euler--Maruyama (EM) discretisation and Stochastic Gradient
-Langevin Dynamics (SGLD) in the accompanying manuscript by Mateusz B. Majka,
-Tigran Nagapetyan, Yue Wu, and Danqi Zhuang.
+Reproducible numerical code accompanying the paper:
 
-The repository focuses on the **cost experiments**. It implements the
+**[arXiv:2609.17750 — On the computational cost of Stochastic Gradient Langevin Dynamics](https://arxiv.org/abs/2609.17750)**
+
+**Authors:** Mateusz B. Majka, Tigran Nagapetyan, Łukasz Szpruch, Yue Wu, and Danqi Zhuang.
+
+The repository focuses on the **cost experiments** from the paper. It implements the
 Gaussian benchmark for which the posterior and invariant distribution are
 known, calibrates a time step by a coupled step-doubling test, estimates the
 Monte Carlo path count, and compares the leading operation-count costs of EM
 and SGLD.
+
+## Citation
+
+If you use this code, please cite:
+
+Mateusz B. Majka, Tigran Nagapetyan, Łukasz Szpruch, Yue Wu, and Danqi Zhuang,
+*On the computational cost of Stochastic Gradient Langevin Dynamics*,
+arXiv:2609.17750 [math.NA], 2026.
+
+Paper: [https://arxiv.org/abs/2609.17750](https://arxiv.org/abs/2609.17750)
 
 ## Scientific convention used by the code
 
@@ -77,8 +88,7 @@ For each $(m,s,\varepsilon)$ configuration and each regenerated dataset:
 4. If the empirical mean squared level difference is larger than
    $\varepsilon^2/2$, replace $h$ by $h/2$ and repeat.
 5. At the accepted **coarse** step size $h$, estimate the single-path variance
-   $V$ and take
-   $N=\max\{1,\lceil 2V/\varepsilon^2\rceil\}$.
+   $V$ and take $N=\max\{1,\lceil 2V/\varepsilon^2\rceil\}$.
 6. Report the leading operation-count costs
 
 ```math
