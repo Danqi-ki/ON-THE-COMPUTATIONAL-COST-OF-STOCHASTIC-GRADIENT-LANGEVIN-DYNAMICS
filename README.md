@@ -2,7 +2,7 @@
 
 Reproducible numerical code accompanying the paper:
 
-**[arXiv:2609.17750 — On the computational cost of Stochastic Gradient Langevin Dynamics](https://arxiv.org/abs/2609.17750)**
+**[\[2609.17750\] On the computational cost of Stochastic Gradient Langevin Dynamics](https://arxiv.org/abs/2609.17750)**
 
 **Authors:** Mateusz B. Majka, Tigran Nagapetyan, Łukasz Szpruch, Yue Wu, and Danqi Zhuang.
 
